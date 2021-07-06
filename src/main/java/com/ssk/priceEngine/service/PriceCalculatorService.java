@@ -13,7 +13,7 @@ public class PriceCalculatorService {
         long cartons = units / unitsPerCarton;
 
         if (cartons >= 3)
-            newCartonPrice = 0.9 * newCartonPrice;
+            newCartonPrice *= 0.9;
 
         return newCartonPrice * (cartons + units % unitsPerCarton * 1.3 / unitsPerCarton);
     }

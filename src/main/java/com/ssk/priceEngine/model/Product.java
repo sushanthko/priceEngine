@@ -12,11 +12,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private final String name;
+    private String name;
 
-    private final long unitsPerCarton;
+    private long unitsPerCarton;
 
-    private final double cartonPrice;
+    private double cartonPrice;
+
+    public Product() {
+    }
 
     public Product(String name, long unitsPerCarton, double cartonPrice) {
         this.name = name;

@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col">
             <h1>Price Calculator</h1>
-            <form action="#" method="post" th:action="@{/}">
+            <form id="product-form">
                 <p>Product:
                     <select onchange="select_product(this.value, products)">
                         <option>---SELECT---</option>
@@ -28,7 +28,7 @@
                 </p>
                 <p>Units per carton:<input disabled id="units-per-carton" type="text"/></p>
                 <p>Carton price:<input disabled id="carton-price" type="text"/></p>
-                <p>Units:<input id="units" type="text"/></p>
+                <p>Units:<input id="units" min="1" required type="number"/></p>
                 <p>
                     <input type="submit" value="Submit"/>
                     <input type="reset" value="Reset"/>

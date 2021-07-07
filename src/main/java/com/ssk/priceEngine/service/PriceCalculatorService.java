@@ -8,7 +8,7 @@ public class PriceCalculatorService {
      * @param cartonPrice    price of a carton of the product
      * @return total purchase price
      */
-    public double calculatePrice(long units, long unitsPerCarton, double cartonPrice) {
+    public static double calculatePrice(long units, long unitsPerCarton, double cartonPrice) {
         double newCartonPrice = cartonPrice;
         long cartons = units / unitsPerCarton;
 

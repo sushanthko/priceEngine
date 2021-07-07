@@ -1,4 +1,8 @@
 let select_product = (productId, products) => {
+    if (productId === "---SELECT---") {
+        $("#product-form")[0].reset();
+        return;
+    }
     let product = products.find(x => x.id === parseInt(productId));
     $("#units-per-carton").val(product.unitsPerCarton);
     $("#carton-price").val(product.cartonPrice);

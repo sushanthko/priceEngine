@@ -1,4 +1,4 @@
-let select_product = (productId, products) => {
+let selectProduct = (productId, products) => {
     if (productId === "---SELECT---") {
         $("#product-form")[0].reset();
         return;
@@ -9,8 +9,10 @@ let select_product = (productId, products) => {
 };
 
 let postProduct = () => {
+    let units = parseInt($("#units").val());
+    let product = $("#product option:selected").text();
     let input = JSON.stringify({
-        units: parseInt($("#units").val()),
+        units: units,
         unitsPerCarton: parseInt($("#units-per-carton").val()),
         cartonPrice: parseFloat($("#carton-price").val())
     });
@@ -21,7 +23,9 @@ let postProduct = () => {
         contentType: "application/json; charset=utf-8",
     })
         .done(data => {
-            console.log(data);
+            $(".alert").html("The total price of " + units + " unit(s) of " + product +
+                " is <strong>" + data + "</strong>.")
+            $(".alert").show();
         })
         .fail(error => {
             console.log(error.responseText);
@@ -32,5 +36,9 @@ $(document).ready(() => {
     $("#product-form").submit(event => {
         event.preventDefault();
         postProduct();
+    });
+
+    $("#product-form").bind("reset", () => {
+        $(".alert").hide();
     });
 });

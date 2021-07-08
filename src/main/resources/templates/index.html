@@ -18,22 +18,39 @@
     <div class="row">
         <div class="col">
             <h1>Price Calculator</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
             <form id="product-form">
-                <p>Product:
-                    <select onchange="select_product(this.value, products)">
+                <div class="form-group">
+                    <label for="product">Product</label>
+                    <select class="form-control" id="product" onchange="selectProduct(this.value, products)">
                         <option>---SELECT---</option>
                         <option th:each="product : ${products}" th:text="${product.name}"
                                 th:value="${product.id}"></option>
                     </select>
-                </p>
-                <p>Units per carton:<input disabled id="units-per-carton" type="text"/></p>
-                <p>Carton price:<input disabled id="carton-price" type="text"/></p>
-                <p>Units:<input id="units" min="1" required type="number"/></p>
-                <p>
-                    <input type="submit" value="Submit"/>
-                    <input type="reset" value="Reset"/>
-                </p>
+                </div>
+                <div class="form-group">
+                    <label for="units-per-carton">Units per carton</label>
+                    <input class="form-control" disabled id="units-per-carton" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label for="carton-price">Carton price</label>
+                    <input class="form-control" disabled id="carton-price" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label for="units">Units</label>
+                    <input class="form-control" id="units" min="1" required type="number"/></p>
+                </div>
+                <input class="btn btn-outline-primary" type="submit" value="Submit"/>
+                <input class="btn btn-outline-primary" type="reset" value="Reset"/>
             </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-auto">
+            <div class="alert alert-success" role="alert" style="display: none;"></div>
         </div>
     </div>
 </div>

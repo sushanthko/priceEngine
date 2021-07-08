@@ -3,9 +3,11 @@ let selectProduct = (productId, products) => {
         $("#product-form")[0].reset();
         return;
     }
+    $(".alert").hide();
     let product = products.find(x => x.id === parseInt(productId));
     $("#units-per-carton").val(product.unitsPerCarton);
     $("#carton-price").val(product.cartonPrice);
+    $("#units").val("");
 };
 
 let postProduct = () => {

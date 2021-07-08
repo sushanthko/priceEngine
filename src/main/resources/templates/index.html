@@ -21,12 +21,12 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
+        <div class="col-auto">
             <form id="product-form">
                 <div class="form-group">
                     <label for="product">Product</label>
-                    <select class="form-control" id="product" onchange="selectProduct(this.value, products)">
-                        <option>---SELECT---</option>
+                    <select class="form-control" id="product" onchange="selectProduct(this.value, products)" required>
+                        <option value="">---SELECT---</option>
                         <option th:each="product : ${products}" th:text="${product.name}"
                                 th:value="${product.id}"></option>
                     </select>

@@ -1,5 +1,5 @@
 let selectProduct = (productId, products) => {
-    if (productId === "---SELECT---") {
+    if (productId === "") {
         $("#product-form")[0].reset();
         return;
     }

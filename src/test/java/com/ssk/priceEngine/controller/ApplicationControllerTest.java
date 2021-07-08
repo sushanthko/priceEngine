@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -23,6 +24,12 @@ class ApplicationControllerTest {
 
     @MockBean
     private ProductRepository productRepository;
+
+    @Test
+    void getHomePage() throws Exception {
+        mvc.perform(get("/"))
+                .andExpect(content().contentType("text/html;charset=UTF-8"));
+    }
 
     @Test
     void calculateTotalPrice() throws Exception {

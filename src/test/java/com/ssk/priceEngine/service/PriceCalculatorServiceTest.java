@@ -9,10 +9,10 @@ class PriceCalculatorServiceTest {
     @Test
     void calculatePrice() {
         double calculated = PriceCalculatorService.calculatePrice(25, 20, 175);
-        double calculatedWithDiscount = PriceCalculatorService.calculatePrice(25, 8, 175);
+        double calculatedWithDiscount = PriceCalculatorService.calculatePrice(100, 5, 825);
 
         assertThat(calculated).isEqualTo(231.875);
-        assertThat(calculatedWithDiscount).isEqualTo(498.09375);
+        assertThat(calculatedWithDiscount).isEqualTo(14850);
     }
 
 }

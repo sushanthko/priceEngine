@@ -8,6 +8,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
@@ -27,10 +29,10 @@ class ProductRepositoryTest {
         entityManager.persist(test);
         entityManager.flush();
 
-        Product found = productRepository.findByName("Test");
+        Optional<Product> found = productRepository.findById(1L);
 
-        assertThat(found.getId()).isPositive();
-        assertThat(found.getName()).isEqualTo(test.getName());
+        assertThat(found.isPresent()).isTrue();
+        assertThat(found.get().getName()).isEqualTo(test.getName());
     }
 
 }

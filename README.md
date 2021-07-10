@@ -1,5 +1,4 @@
-# priceEngine
-Price calculator.
+# Price Calculator
 
 How to start the Price Calculator application
 ---
